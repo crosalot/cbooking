@@ -47,7 +47,7 @@ Next.js 16 (App Router, TypeScript, Tailwind)  ──►  Postgres (Neon/Supabas
 
 ### เรื่อง cron ที่ต้องรู้
 
-* `vercel.json` ตั้ง `/api/cron/fire` ที่ `58 16 * * *` (UTC) = **23:58 ไทย** และ `/api/cron/tick` ทุก 5 นาที
+* `vercel.json` ตั้ง `/api/cron/fire` ที่ `58 16 * * *` (UTC) = **23:58 ไทย** และ `/api/cron/tick` วันละครั้ง 00:10 ไทย (Hobby ให้ cron ได้แค่รายวัน — tick ถี่ ๆ ใช้ cron-job.org ด้านล่าง)
   Vercel ส่ง `Authorization: Bearer $CRON_SECRET` ให้เองเมื่อตั้ง env `CRON_SECRET`
 * handler `/fire` จะ **รอในตัวเอง** จนถึง 00:00:00 + `FIRE_OFFSET_MS` แล้วยิง จากนั้น retry ทุก 2.5 วิ ถ้าต้นทางยังไม่เปิดหน้าต่าง (สูงสุด `FIRE_RETRY_SECONDS`) — route ตั้ง `maxDuration = 300` จึงต้องเปิด **Fluid Compute** (default ของโปรเจกต์ใหม่) หรืออยู่บน Pro
 * ⚠️ **Vercel Hobby**: cron ยิงได้แค่วันละครั้งและ **เวลาไม่แม่น (อาจคลาดได้ถึง ~1 ชม.)** และ cron ทุก 5 นาทีใช้ไม่ได้

@@ -1,6 +1,6 @@
 {
   "crons": [
     { "path": "/api/cron/fire", "schedule": "58 16 * * *" },
-    { "path": "/api/cron/tick", "schedule": "*/5 * * * *" }
+    { "path": "/api/cron/tick", "schedule": "10 17 * * *" }
   ]
 }
