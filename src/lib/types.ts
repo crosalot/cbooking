@@ -1,0 +1,22 @@
+export type QueueItem = {
+  id: number;
+  loc_id: string;
+  loc_name: string | null;
+  stadium_id: string;
+  stadium_name: string | null;
+  stadiumtime_id: string;
+  time_name: string;
+  booking_date: string;
+  amount: string;
+  status: "queued" | "firing" | "booked_paid" | "pending_payment" | "failed" | "cancelled" | "expired";
+  open_at: string | null;
+  attempts: number;
+  last_error: string | null;
+  booking_ref: string | null;
+  payment_ref: string | null;
+  payment_type: string | null;
+  qr_expires_at: string | null;
+  hasQr: boolean;
+  fired_at: string | null;
+  created_at: string;
+};
